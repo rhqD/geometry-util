@@ -9,4 +9,4 @@ export const pointsToVector = (start: IPoint, end: IPoint): IVector => {
   const allKeys = union(keys(start), keys(end));
   const values = map(allKeys, (k: string) => get(end, k, 0) - get(start, k, 0));
   return zipObject(allKeys, values) as IVector;
-};
+}
