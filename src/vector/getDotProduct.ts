@@ -1,9 +1,9 @@
 import { IVector } from "../types";
-import keys from 'lodash.keys';
-import union from 'lodash.union';
-import map from 'lodash.map';
-import get from 'lodash.get';
-import sum from "lodash.sum";
+import keys from 'lodash/keys';
+import union from 'lodash/union';
+import map from 'lodash/map';
+import get from 'lodash/get';
+import sum from "lodash/sum";
 
 const getDotProduct = (vector1: IVector, vector2: IVector) => {
   const allKeys: string[] = union(keys(vector1), keys(vector2));

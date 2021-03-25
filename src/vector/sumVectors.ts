@@ -1,9 +1,9 @@
 import { IVector } from "../types"
-import keys from 'lodash.keys';
-import union from 'lodash.union';
-import zipObject from 'lodash.zipobject';
-import map from 'lodash.map';
-import get from 'lodash.get';
+import keys from 'lodash/keys';
+import union from 'lodash/union';
+import zipObject from 'lodash/zipObject';
+import map from 'lodash/map';
+import get from 'lodash/get';
 
 const sumVectors = (...vectors: IVector[]) => {
   return vectors.reduce((result, curr) => sumTwoVectors(result, curr), {});

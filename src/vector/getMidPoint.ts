@@ -1,9 +1,9 @@
 import { IPoint } from "../types";
-import keys from 'lodash.keys';
-import union from 'lodash.union';
-import zipObject from 'lodash.zipobject';
-import map from 'lodash.map';
-import get from 'lodash.get';
+import keys from 'lodash/keys';
+import union from 'lodash/union';
+import zipObject from 'lodash/zipObject';
+import map from 'lodash/map';
+import get from 'lodash/get';
 
 const getMidPoint = (point1: IPoint, point2: IPoint): IPoint => {
   const allKeys: string[] = union(keys(point1), keys(point2));
