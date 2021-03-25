@@ -5,5 +5,7 @@ export { default as getRadiusBetweenVectors } from './getRadiusBetweenVectors';
 export { default as pointsToVector } from './pointsToVector';
 export { default as scaleVector } from './scaleVector';
 export { default as scaleVectorTo } from './scaleVectorTo';
+export { default as diffVectors } from './diffVectors';
 export { default as sumVectors } from './sumVectors';
 export { default as getVectorLength } from './getVectorLength';
+export * from './3D';

@@ -10,9 +10,9 @@ const getCrossProduct = (vector1: IVector, vector2: IVector) => {
   }
   const [k0, k1, k2] = allKeys;
   return {
-    [allKeys[0]]: get(vector1, k1, 0) * get(vector2, k2, 0) - get(vector1, k2, 0) * get(vector2, k1, 0),
-    [allKeys[1]]: get(vector1, k2, 0) * get(vector2, k0, 0) - get(vector1, k0, 0) * get(vector2, k2, 0),
-    [allKeys[2]]: get(vector1, k0, 0) * get(vector2, k1, 0) - get(vector1, k1, 0) * get(vector2, k0, 0),
+    [allKeys[0]]: get(vector1, k2, 0) * get(vector2, k1, 0) - get(vector1, k1, 0) * get(vector2, k2, 0),
+    [allKeys[1]]: get(vector1, k0, 0) * get(vector2, k2, 0) - get(vector1, k2, 0) * get(vector2, k0, 0),
+    [allKeys[2]]: get(vector1, k1, 0) * get(vector2, k0, 0) - get(vector1, k0, 0) * get(vector2, k1, 0),
   };
 }
 

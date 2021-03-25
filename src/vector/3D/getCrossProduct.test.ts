@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import getCrossProduct from './getCrossProduct';
 describe('getCrossProduct', () => {
   it('should correctly calculate cross product', () => {
@@ -5,9 +6,9 @@ describe('getCrossProduct', () => {
     const vector2 = { x: 2, y: 1, z: 4 };
     const crossProduct = getCrossProduct(vector1, vector2);
     expect(crossProduct).toEqual({
-      x: 5,
-      y: 2,
-      z: -3,
+      x: -5,
+      y: -2,
+      z: 3,
     });
   });
 
@@ -16,9 +17,9 @@ describe('getCrossProduct', () => {
     const vector2 = { y: 1, z: 4, x: 2 };
     const crossProduct = getCrossProduct(vector1, vector2);
     expect(crossProduct).toEqual({
-      x: 5,
-      y: 2,
-      z: -3,
+      x: -5,
+      y: -2,
+      z: 3,
     });
   });
 
@@ -30,6 +31,32 @@ describe('getCrossProduct', () => {
       x: 0,
       y: 0,
       z: 0,
+    });
+  });
+
+  it('should throw error when try to calculate cross product of none 3 dimension vectors', () => {
+    const vector1 = {};
+    const vector2 = { x: 1 };
+    expect(() => getCrossProduct(vector1, vector2)).toThrowError();
+  });
+
+  it('should return zero vector for parallel vectors', () => {
+    const vector1 = { x: 1, y: 1, z: 1 };
+    const vector2 = { x: 2, y: 2, z: 2 };
+    expect(getCrossProduct(vector1, vector2)).toEqual({
+      x: 0,
+      y: 0,
+      z: 0
+    });
+  });
+
+  it('should return zero vector for parallel vectors', () => {
+    const vector1 = { x: 1, y: 1, z: 1 };
+    const vector2 = { x: -2, y: -2, z: -2 };
+    expect(getCrossProduct(vector1, vector2)).toEqual({
+      x: 0,
+      y: 0,
+      z: 0
     });
   });
 });

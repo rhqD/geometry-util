@@ -35,4 +35,18 @@ describe('getRadiusBetweenVectors', () => {
     const radius = getRadiusBetweenVectors(vector1, vector2);
     expect(radius).toBe(Math.PI / 2);
   });
+
+  it('should return 0 for parallel vectors', () => {
+    const vector1 = { x: 1, y: 2, z: 3 };
+    const vector2 = { x: 2, y: 4, z: 6 };
+    const radius = getRadiusBetweenVectors(vector1, vector2);
+    expect(radius).toBe(0);
+  });
+
+  it('should return 0 for parallel vectors', () => {
+    const vector1 = { x: 1, y: 2, z: 3 };
+    const vector2 = { x: -2, y: -4, z: -6 };
+    const radius = getRadiusBetweenVectors(vector1, vector2);
+    expect(radius).toBe(Math.PI);
+  });
 });
