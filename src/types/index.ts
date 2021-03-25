@@ -1,1 +1,1 @@
-export { IPoint, IVector } from './vector';
+export * from './vector';
