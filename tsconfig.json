@@ -3,14 +3,13 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "outDir": "./build/",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "declarationDir": "./types",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
     "moduleResolution": "node",
-    "jsx": "react",
     "noUnusedLocals": true,
     "esModuleInterop": true,
     "emitDecoratorMetadata": false,
@@ -19,11 +18,7 @@
     "importHelpers": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "lib": [
-      "dom",
-      "es2019"
-    ]
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modues"]
+  "exclude": ["node_modues", "src/**/*.test.ts", "src/types/**"]
 }

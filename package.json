@@ -1,7 +1,7 @@
 {
   "name": "geometry-utils",
   "version": "1.0.0",
-  "description": "",
+  "description": "util lib for geometry",
   "main": "index.js",
   "dependencies": {
     "@types/lodash": "^4.14.168",
