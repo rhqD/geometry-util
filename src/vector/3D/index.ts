@@ -1,0 +1,1 @@
+export { default as getCrossProduct } from './getCrossProduct';
