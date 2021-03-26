@@ -1,14 +1,46 @@
-import _ from 'lodash';
 import getCrossProduct from './getCrossProduct';
 describe('getCrossProduct', () => {
-  it('should correctly calculate cross product', () => {
+  it('should correctly calculate cross product case 1', () => {
+    const vector1 = { x: 1, y: 0, z: 0 };
+    const vector2 = { x: 0, y: 1, z: 0 };
+    const crossProduct = getCrossProduct(vector1, vector2);
+    expect(crossProduct).toEqual({
+      x: 0,
+      y: 0,
+      z: 1,
+    });
+  });
+
+  it('should correctly calculate cross product case 2', () => {
+    const vector1 = { x: 1, y: 0, z: 0 };
+    const vector2 = { x: 0, y: 0, z: 1 };
+    const crossProduct = getCrossProduct(vector1, vector2);
+    expect(crossProduct).toEqual({
+      x: 0,
+      y: -1,
+      z: 0,
+    });
+  });
+
+  it('should correctly calculate cross product case 2', () => {
+    const vector1 = { x: 0, y: 1, z: 0 };
+    const vector2 = { x: 0, y: 0, z: 1 };
+    const crossProduct = getCrossProduct(vector1, vector2);
+    expect(crossProduct).toEqual({
+      x: 1,
+      y: 0,
+      z: 0,
+    });
+  });
+
+  it('should correctly calculate cross product case 3', () => {
     const vector1 = { x: 1, y: 2, z: 3 };
     const vector2 = { x: 2, y: 1, z: 4 };
     const crossProduct = getCrossProduct(vector1, vector2);
     expect(crossProduct).toEqual({
-      x: -5,
-      y: -2,
-      z: 3,
+      x: 5,
+      y: 2,
+      z: -3,
     });
   });
 
@@ -17,9 +49,9 @@ describe('getCrossProduct', () => {
     const vector2 = { y: 1, z: 4, x: 2 };
     const crossProduct = getCrossProduct(vector1, vector2);
     expect(crossProduct).toEqual({
-      x: -5,
-      y: -2,
-      z: 3,
+      x: 5,
+      y: 2,
+      z: -3,
     });
   });
 

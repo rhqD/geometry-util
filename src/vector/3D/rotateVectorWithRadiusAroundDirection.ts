@@ -23,7 +23,7 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, direction: IDire
   const thirdAxisVector = getCrossProduct(direction, projectionVectorAtNormalDirection);
   const lengthOfThirdAxisVector = getVectorLength(thirdAxisVector);
   const x1 = Math.cos(radius) / lengthOfProjectionVectorAtNormalDirection;
-  const x2 = Math.sin(-radius) / lengthOfThirdAxisVector;
+  const x2 = Math.sin(radius) / lengthOfThirdAxisVector;
   const projectionVectorAtNormalDirectionAfterRotation = scaleVector(
     sumVectors(
       scaleVector(projectionVectorAtNormalDirection, x1),
