@@ -2,9 +2,9 @@ import { IVector } from "../../types";
 import keys from 'lodash/keys';
 import isZeroVector from "../isZeroVector";
 import get from "lodash/get";
-import rotateVectorIn3DWithRadiusAroundDirection from '../3D/rotateVectorWithRadiusAroundDirection';
+import rotateVectorIn3DWithRadianAroundDirection from '../3D/rotateVectorWithRadianAroundDirection';
 
-const rotateVectorWithRadiusAroundDirection = (vector: IVector, radius: number) => {
+const rotateVectorWithRadianAroundDirection = (vector: IVector, radian: number) => {
   const allKeys: string[] = keys(vector);
   if (allKeys.length !== 2) {
     throw new Error('this function is only applicable to 2D vectors');
@@ -13,7 +13,7 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, radius: number) 
     throw new Error('rotation is not applicable to zero vector');
   }
   const fakeAxisName = allKeys.join('_');
-  const resultIn3D = rotateVectorIn3DWithRadiusAroundDirection(
+  const resultIn3D = rotateVectorIn3DWithRadianAroundDirection(
     {
       ...vector,
       [fakeAxisName]: 0,
@@ -22,7 +22,7 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, radius: number) 
       [allKeys[1]]: 0,
       [fakeAxisName]: 1,
     },
-    radius
+    radian
   );
   return {
     [allKeys[0]]: get(resultIn3D, allKeys[0], 0),
@@ -31,4 +31,4 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, radius: number) 
   
 };
 
-export default rotateVectorWithRadiusAroundDirection;
+export default rotateVectorWithRadianAroundDirection;

@@ -1,5 +1,5 @@
 import { IVector } from "../types"
-import getRadiusBetween from "./getRadiusBetween";
+import getRadianBetween from "./getRadianBetween";
 import round from "../common/round";
 
 const isParallel = (...vectors: IVector[]) => {
@@ -12,8 +12,8 @@ const isParallel = (...vectors: IVector[]) => {
 }
 
 const isTwoVectorParallel = (vector1: IVector, vector2: IVector) => {
-  const radiusBetweenVectors = round(getRadiusBetween(vector1, vector2), 4);
-  return radiusBetweenVectors === 0 || radiusBetweenVectors === round(Math.PI);
+  const radianBetweenVectors = round(getRadianBetween(vector1, vector2), 4);
+  return radianBetweenVectors === 0 || radianBetweenVectors === round(Math.PI);
 }
 
 export default isParallel;

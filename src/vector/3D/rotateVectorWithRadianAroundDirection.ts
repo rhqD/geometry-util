@@ -9,7 +9,7 @@ import getVectorLength from "../getVectorLength";
 import scaleVector from "../scaleVector";
 import sumVectors from "../sumVectors";
 
-const rotateVectorWithRadiusAroundDirection = (vector: IVector, direction: IDirection, radius: number) => {
+const rotateVectorWithRadianAroundDirection = (vector: IVector, direction: IDirection, radian: number) => {
   const allKeys: string[] = union(keys(vector), keys(direction));
   if (allKeys.length !== 3) {
     throw new Error('rotation is not applicable to this vector');
@@ -22,8 +22,8 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, direction: IDire
   const lengthOfProjectionVectorAtNormalDirection = getVectorLength(projectionVectorAtNormalDirection);
   const thirdAxisVector = getCrossProduct(direction, projectionVectorAtNormalDirection);
   const lengthOfThirdAxisVector = getVectorLength(thirdAxisVector);
-  const x1 = Math.cos(radius) / lengthOfProjectionVectorAtNormalDirection;
-  const x2 = Math.sin(radius) / lengthOfThirdAxisVector;
+  const x1 = Math.cos(radian) / lengthOfProjectionVectorAtNormalDirection;
+  const x2 = Math.sin(radian) / lengthOfThirdAxisVector;
   const projectionVectorAtNormalDirectionAfterRotation = scaleVector(
     sumVectors(
       scaleVector(projectionVectorAtNormalDirection, x1),
@@ -34,4 +34,4 @@ const rotateVectorWithRadiusAroundDirection = (vector: IVector, direction: IDire
   return sumVectors(projectionVectorAtNormalDirectionAfterRotation, projectionVectorAtDirection);
 };
 
-export default rotateVectorWithRadiusAroundDirection;
+export default rotateVectorWithRadianAroundDirection;

@@ -1,9 +1,9 @@
-import angleToRadius from "../../common/angleToRadius";
+import angleToRadian from "../../common/angleToRadian";
 import { IVector } from "../../types";
-import rotateVectorWithRadiusAroundDirection from "./rotateVectorWithRadiusAroundDirection";
+import rotateVectorWithRadianAroundDirection from "./rotateVectorWithRadianAroundDirection";
 
 const rotateVectorWithAngleAroundDirection = (vector: IVector, angle: number) => {
-  return rotateVectorWithRadiusAroundDirection(vector, angleToRadius(angle));
+  return rotateVectorWithRadianAroundDirection(vector, angleToRadian(angle));
 }
 
 export default rotateVectorWithAngleAroundDirection;

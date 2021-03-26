@@ -1,2 +1,2 @@
-export { default as angleToRadius} from './angleToRadius';
-export { default as radiusToAngle} from './radiusToAngle';
+export { default as angleToRadian} from './angleToRadian';
+export { default as radianToAngle} from './radianToAngle';
