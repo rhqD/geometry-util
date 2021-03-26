@@ -1,9 +1,9 @@
 import { IVector } from "../types";
-import getRadiusBetweenVectors from "./getRadiusBetweenVectors";
+import getRadiusBetween from "./getRadiusBetween";
 import radiusToAngle from "../common/radiusToAngle";
 
 const getAngleBetween = (vector1: IVector, vector2: IVector): number => {
-  const radius = getRadiusBetweenVectors(vector1, vector2);
+  const radius = getRadiusBetween(vector1, vector2);
   return radiusToAngle(radius);
 };
 

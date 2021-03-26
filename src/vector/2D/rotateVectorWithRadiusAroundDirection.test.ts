@@ -1,5 +1,5 @@
 import { IVector } from '../../types';
-import getRadiusBetweenVectors from '../getRadiusBetweenVectors';
+import getRadiusBetween from '../getRadiusBetween';
 import getVectorLength from '../getVectorLength';
 import rotateVectorWithRadiusAroundDirection from './rotateVectorWithRadiusAroundDirection';
 
@@ -36,7 +36,7 @@ describe('rotateVectorWithRadiusAroundDirection', () => {
     const vector = args[0] as IVector;
     const radius = args[1] as number;
     const result = rotateVectorWithRadiusAroundDirection(vector, radius);
-    expect(getRadiusBetweenVectors(vector, result)).toBeCloseTo(radius);
+    expect(getRadiusBetween(vector, result)).toBeCloseTo(radius);
     expect(getVectorLength(result)).toBeCloseTo(getVectorLength(vector));
   });
 

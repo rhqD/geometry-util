@@ -1,7 +1,7 @@
 import keys from 'lodash/keys';
 import union from 'lodash/union';
 import { IVector } from '../..';
-import getRadiusBetweenVectors from '../getRadiusBetweenVectors';
+import getRadiusBetween from '../getRadiusBetween';
 import getCrossProduct from '../3D/getCrossProduct';
 import round from '../../common/round';
 
@@ -10,7 +10,7 @@ const getDirectedRadiusBetween = (vector1: IVector, vector2: IVector) => {
   if (allKeys.length !== 2) {
     throw new Error('this function is only applicable to 2D vectors');
   }
-  const radius = getRadiusBetweenVectors(vector1, vector2);
+  const radius = getRadiusBetween(vector1, vector2);
   if (round(radius) === 0) {
     return 0;
   }

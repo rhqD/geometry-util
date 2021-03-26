@@ -1,6 +1,6 @@
 import { IDirection, IVector } from '../../types';
 import diffVectors from '../diffVectors';
-import getRadiusBetweenVectors from '../getRadiusBetweenVectors';
+import getRadiusBetween from '../getRadiusBetween';
 import getVectorLength from '../getVectorLength';
 import projectVectorAt from '../projectVectorAt';
 import rotateVectorWithRadiusAroundDirection from './rotateVectorWithRadiusAroundDirection';
@@ -119,8 +119,8 @@ describe('rotateVectorWithRadiusAroundDirection', () => {
     const direction = args[1] as IDirection;
     const radius = args[2] as number;
     const result = rotateVectorWithRadiusAroundDirection(vector, direction, radius);
-    const originRadius = getRadiusBetweenVectors(vector, direction);
-    const radiusAfterRotation = getRadiusBetweenVectors(result, direction);
+    const originRadius = getRadiusBetween(vector, direction);
+    const radiusAfterRotation = getRadiusBetween(result, direction);
     expect(originRadius).toBeCloseTo(radiusAfterRotation);
     expect(getVectorLength(result)).toBeCloseTo(getVectorLength(vector));
     const projectionVectorAtNormalDirection = diffVectors(
@@ -131,7 +131,7 @@ describe('rotateVectorWithRadiusAroundDirection', () => {
       result,
       projectVectorAt(vector, direction),
     );
-    expect(getRadiusBetweenVectors(projectionVectorAtNormalDirection, projectionVectorAtNormalDirectionAfterRotation)).toBeCloseTo(radius);
+    expect(getRadiusBetween(projectionVectorAtNormalDirection, projectionVectorAtNormalDirectionAfterRotation)).toBeCloseTo(radius);
   });
 
   it('should throw error when try to rotate a zero vector', () => {

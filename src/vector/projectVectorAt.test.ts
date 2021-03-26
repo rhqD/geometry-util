@@ -1,4 +1,4 @@
-import getRadiusBetweenVectors from './getRadiusBetweenVectors';
+import getRadiusBetween from './getRadiusBetween';
 import getVectorLength from './getVectorLength';
 import projectVectorAt from './projectVectorAt';
 describe('projectVectorAt', () => {
@@ -34,6 +34,6 @@ describe('projectVectorAt', () => {
     const result = projectVectorAt(vector, directionVector);
     const resultLength = getVectorLength(result);
     expect(resultLength).toBeCloseTo(12 / 6 ** 0.5);
-    expect(getRadiusBetweenVectors(result, directionVector)).toBeCloseTo(0);
+    expect(getRadiusBetween(result, directionVector)).toBeCloseTo(0);
   });
 });
