@@ -3,7 +3,7 @@ import getDotProduct from "./getDotProduct";
 import getVectorLength from "./getVectorLength";
 import round from '../common/round';
 
-const getRadiusBetweenVectors = (vector1: IVector, vector2: IVector): number => {
+const getRadiusBetween = (vector1: IVector, vector2: IVector): number => {
   const product = (getVectorLength(vector1) * getVectorLength(vector2));
   if (product == 0) {
     return 0;
@@ -13,4 +13,4 @@ const getRadiusBetweenVectors = (vector1: IVector, vector2: IVector): number => 
   );
 }
 
-export default getRadiusBetweenVectors;
+export default getRadiusBetween;
