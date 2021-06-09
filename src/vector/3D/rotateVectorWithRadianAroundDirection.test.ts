@@ -69,6 +69,21 @@ describe('rotateVectorWithRadianAroundDirection', () => {
     expect(result.z).toBeCloseTo(0);
   });
 
+  it('should correctly rotate a vector with preset axes', () => {
+    const vector = {
+      x: 1,
+      y: 0,
+      z: 0,
+    };
+    const direction = {
+      z: 1,
+    };
+    const result = rotateVectorWithRadianAroundDirection(vector, direction, Math.PI / 2, ['y', 'z', 'x']);
+    expect(result.y).toBeCloseTo(1);
+    expect(result.z).toBeCloseTo(0);
+    expect(result.x).toBeCloseTo(0);
+  });
+
   it('should correctly rotate a vector', () => {
     const vector = {
       x: 0,

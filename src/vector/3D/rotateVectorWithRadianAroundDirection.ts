@@ -8,19 +8,30 @@ import getCrossProduct from "./getCrossProduct";
 import getVectorLength from "../getVectorLength";
 import scaleVector from "../scaleVector";
 import sumVectors from "../sumVectors";
+import mapKeys from "lodash/mapKeys";
+import mapValues from "lodash/mapValues";
 
-const rotateVectorWithRadianAroundDirection = (vector: IVector, direction: IDirection, radian: number) => {
+const rotateVectorWithRadianAroundDirection = (vector: IVector, direction: IDirection, radian: number, presetAxes?: string[]) => {
   const allKeys: string[] = union(keys(vector), keys(direction));
-  if (allKeys.length !== 3) {
+  const axes = presetAxes ?? allKeys;
+  if (axes.length !== 3) {
     throw new Error('rotation is not applicable to this vector');
   }
-  if (isZeroVector(vector) || isZeroVector(direction)) {
+  const pickedVector = mapValues(
+    mapKeys(axes, axisName => axisName),
+    axisName => vector[axisName] ?? 0
+  );
+  const pickedDirection = mapValues(
+    mapKeys(axes, axisName => axisName),
+    axisName => direction[axisName] ?? 0
+  );
+  if (isZeroVector(pickedVector) || isZeroVector(pickedDirection)) {
     throw new Error('rotation is not applicable to this vector');
   }
-  const projectionVectorAtDirection = projectVectorTo(vector, direction);
-  const projectionVectorAtNormalDirection = diffVectors(vector, projectionVectorAtDirection);
+  const projectionVectorAtDirection = projectVectorTo(pickedVector, pickedDirection);
+  const projectionVectorAtNormalDirection = diffVectors(pickedVector, projectionVectorAtDirection);
   const lengthOfProjectionVectorAtNormalDirection = getVectorLength(projectionVectorAtNormalDirection);
-  const thirdAxisVector = getCrossProduct(direction, projectionVectorAtNormalDirection);
+  const thirdAxisVector = getCrossProduct(pickedDirection, projectionVectorAtNormalDirection);
   const lengthOfThirdAxisVector = getVectorLength(thirdAxisVector);
   const x1 = Math.cos(radian) / lengthOfProjectionVectorAtNormalDirection;
   const x2 = Math.sin(radian) / lengthOfThirdAxisVector;

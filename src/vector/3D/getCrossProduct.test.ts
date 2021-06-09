@@ -11,6 +11,17 @@ describe('getCrossProduct', () => {
     });
   });
 
+  it('should correctly calculate cross product with presetAxes case 1', () => {
+    const vector1 = { x: 1, y: 0, z: 0 };
+    const vector2 = { x: 0, y: 1, z: 0 };
+    const crossProduct = getCrossProduct(vector1, vector2, ['y', 'x', 'z']);
+    expect(crossProduct).toEqual({
+      x: 0,
+      y: 0,
+      z: -1,
+    });
+  });
+
   it('should correctly calculate cross product case 2', () => {
     const vector1 = { x: 1, y: 0, z: 0 };
     const vector2 = { x: 0, y: 0, z: 1 };
@@ -22,7 +33,7 @@ describe('getCrossProduct', () => {
     });
   });
 
-  it('should correctly calculate cross product case 2', () => {
+  it('should correctly calculate cross product case 3', () => {
     const vector1 = { x: 0, y: 1, z: 0 };
     const vector2 = { x: 0, y: 0, z: 1 };
     const crossProduct = getCrossProduct(vector1, vector2);
@@ -33,7 +44,7 @@ describe('getCrossProduct', () => {
     });
   });
 
-  it('should correctly calculate cross product case 3', () => {
+  it('should correctly calculate cross product case 4', () => {
     const vector1 = { x: 1, y: 2, z: 3 };
     const vector2 = { x: 2, y: 1, z: 4 };
     const crossProduct = getCrossProduct(vector1, vector2);

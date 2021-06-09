@@ -2,32 +2,39 @@ import { IVector } from "../../interfaces";
 import keys from 'lodash/keys';
 import isZeroVector from "../isZeroVector";
 import get from "lodash/get";
+import mapValues from "lodash/mapValues";
 import rotateVectorIn3DWithRadianAroundDirection from '../3D/rotateVectorWithRadianAroundDirection';
 import round from "../../common/round";
+import { mapKeys } from "lodash";
 
-const rotateVectorWithRadian = (vector: IVector, radian: number) => {
+const rotateVectorWithRadian = (vector: IVector, radian: number, presetAxes?: string[]) => {
   const allKeys: string[] = keys(vector);
-  if (allKeys.length !== 2) {
+  const axes: string[] = presetAxes ?? allKeys;
+  if (axes.length !== 2) {
     throw new Error('this function is only applicable to 2D vectors');
   }
-  if (isZeroVector(vector)) {
-    return vector;
+  const pickedVector = mapValues(
+    mapKeys(axes, axisName => axisName),
+    axisName => vector[axisName] ?? 0
+  );
+  if (isZeroVector(pickedVector)) {
+    return pickedVector;
   }
-  const fakeAxisName = allKeys.join('_');
+  const fakeAxisName = axes.join('_');
   const resultIn3D = rotateVectorIn3DWithRadianAroundDirection(
     {
-      ...vector,
+      ...pickedVector,
       [fakeAxisName]: 0,
     }, {
-      [allKeys[0]]: 0,
-      [allKeys[1]]: 0,
+      [axes[0]]: 0,
+      [axes[1]]: 0,
       [fakeAxisName]: 1,
     },
     radian
   );
   return {
-    [allKeys[0]]: round(get(resultIn3D, allKeys[0], 0)),
-    [allKeys[1]]: round(get(resultIn3D, allKeys[1], 0)),
+    [axes[0]]: round(get(resultIn3D, axes[0], 0)),
+    [axes[1]]: round(get(resultIn3D, axes[1], 0)),
   };
   
 };
