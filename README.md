@@ -1,5 +1,9 @@
 # geometry-utils
 A JavaScript utility library for geometry related calculation.
+
+## heads up
+the component name is not restricted to 'x', 'y', 'z', you can use any name for a axis(you can still use 'x', 'y', 'z' if you prefer).
+axis order does matter for 3D/2D vector operation like getCrossProduct, `geometry-utils` by default use a left hand coordinates system for those operations, you can explictly declare the axis order with a array(i.e. `['x', 'y', 'z']`).
 ## Vector
 ### Vector interface
 ```ts
