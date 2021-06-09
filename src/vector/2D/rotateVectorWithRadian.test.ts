@@ -1,7 +1,7 @@
-import { IVector } from '../../types';
+import { IVector } from '../../interfaces';
 import getRadianBetween from '../getRadianBetween';
 import getVectorLength from '../getVectorLength';
-import rotateVectorWithRadianAroundDirection from './rotateVectorWithRadianAroundDirection';
+import rotateVectorWithRadian from './rotateVectorWithRadian';
 
 const cases: (number | IVector)[][] = [
   [
@@ -31,17 +31,20 @@ const cases: (number | IVector)[][] = [
   ]
 ];
 
-describe('rotateVectorWithRadianAroundDirection', () => {
+describe('rotateVectorWithRadian', () => {
   it.each(cases)('test case', (...args) => {
     const vector = args[0] as IVector;
     const radian = args[1] as number;
-    const result = rotateVectorWithRadianAroundDirection(vector, radian);
+    const result = rotateVectorWithRadian(vector, radian);
     expect(getRadianBetween(vector, result)).toBeCloseTo(radian);
     expect(getVectorLength(result)).toBeCloseTo(getVectorLength(vector));
   });
 
-  it('should throw error when try to rotate a zero vector', () => {
-    expect(() => rotateVectorWithRadianAroundDirection({ x: 0, y: 0 }, 0)).toThrowError();
+  it('should return zero vector when try to rotate a zero vector', () => {
+    expect(rotateVectorWithRadian({ x: 0, y: 0 }, 0)).toEqual({
+      x: 0,
+      y: 0
+    });
   });
   
 });

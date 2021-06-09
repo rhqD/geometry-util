@@ -1,4 +1,4 @@
-import { IVector } from "../types";
+import { IVector } from "../interfaces";
 import values from 'lodash/values';
 
 const isZeroVector = (vector: IVector) => {

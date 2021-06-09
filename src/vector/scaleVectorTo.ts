@@ -1,4 +1,4 @@
-import { IVector } from '../types/vector';
+import { IVector } from '../interfaces';
 import getVectorLength from './getVectorLength';
 import scaleVector from './scaleVector';
 

@@ -1,6 +1,6 @@
 import keys from 'lodash/keys';
 import union from 'lodash/union';
-import { IVector } from '../..';
+import { IVector } from '../../interfaces';
 import getRadianBetween from '../getRadianBetween';
 import getCrossProduct from '../3D/getCrossProduct';
 import round from '../../common/round';

@@ -1,4 +1,4 @@
-import { IVector } from "../../types";
+import { IVector } from "../../interfaces";
 import keys from 'lodash/keys';
 import union from 'lodash/union';
 import get from 'lodash/get';

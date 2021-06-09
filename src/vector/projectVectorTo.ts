@@ -1,10 +1,10 @@
-import { IDirection, IVector } from "../types";
+import { IDirection, IVector } from "../interfaces";
 import getDotProduct from "./getDotProduct";
 import getVectorLength from "./getVectorLength";
 import scaleVector from "./scaleVector";
 import scaleVectorTo from "./scaleVectorTo";
 
-const projectVectorAt = (vector: IVector, normalVector: IDirection) => {
+const projectVectorTo = (vector: IVector, normalVector: IDirection) => {
   const dotProduct = getDotProduct(vector, normalVector);
   const finalLength = Math.abs(dotProduct) / getVectorLength(normalVector);
   const tempResult = scaleVectorTo(normalVector, finalLength);
@@ -14,4 +14,4 @@ const projectVectorAt = (vector: IVector, normalVector: IDirection) => {
   return scaleVector(tempResult, -1);
 }
 
-export default projectVectorAt;
+export default projectVectorTo;

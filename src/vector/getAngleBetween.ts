@@ -1,4 +1,4 @@
-import { IVector } from "../types";
+import { IVector } from "../interfaces";
 import getRadianBetween from "./getRadianBetween";
 import radianToAngle from "../common/radianToAngle";
 

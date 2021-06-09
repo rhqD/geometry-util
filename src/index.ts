@@ -1,3 +1,3 @@
 export * from './vector';
 export * from './common';
-export * from './types';
+export * from './interfaces';

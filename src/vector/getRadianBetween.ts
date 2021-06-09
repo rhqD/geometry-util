@@ -1,4 +1,4 @@
-import { IVector } from "../types";
+import { IVector } from "../interfaces";
 import getDotProduct from "./getDotProduct";
 import getVectorLength from "./getVectorLength";
 import round from '../common/round';

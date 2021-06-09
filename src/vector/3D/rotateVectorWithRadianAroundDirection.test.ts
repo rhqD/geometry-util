@@ -1,8 +1,8 @@
-import { IDirection, IVector } from '../../types';
+import { IDirection, IVector } from '../../interfaces';
 import diffVectors from '../diffVectors';
 import getRadianBetween from '../getRadianBetween';
 import getVectorLength from '../getVectorLength';
-import projectVectorAt from '../projectVectorAt';
+import projectVectorTo from '../projectVectorTo';
 import rotateVectorWithRadianAroundDirection from './rotateVectorWithRadianAroundDirection';
 
 const cases: (number | IVector | IDirection)[][] = [
@@ -125,11 +125,11 @@ describe('rotateVectorWithRadianAroundDirection', () => {
     expect(getVectorLength(result)).toBeCloseTo(getVectorLength(vector));
     const projectionVectorAtNormalDirection = diffVectors(
       vector,
-      projectVectorAt(vector, direction),
+      projectVectorTo(vector, direction),
     );
     const projectionVectorAtNormalDirectionAfterRotation = diffVectors(
       result,
-      projectVectorAt(vector, direction),
+      projectVectorTo(vector, direction),
     );
     expect(getRadianBetween(projectionVectorAtNormalDirection, projectionVectorAtNormalDirectionAfterRotation)).toBeCloseTo(radian);
   });

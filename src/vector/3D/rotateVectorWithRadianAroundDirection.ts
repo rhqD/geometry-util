@@ -1,8 +1,8 @@
-import { IDirection, IVector } from "../../types";
+import { IDirection, IVector } from "../../interfaces";
 import keys from 'lodash/keys';
 import union from 'lodash/union';
 import isZeroVector from "../isZeroVector";
-import projectVectorAt from "../projectVectorAt";
+import projectVectorTo from "../projectVectorTo";
 import diffVectors from "../diffVectors";
 import getCrossProduct from "./getCrossProduct";
 import getVectorLength from "../getVectorLength";
@@ -17,7 +17,7 @@ const rotateVectorWithRadianAroundDirection = (vector: IVector, direction: IDire
   if (isZeroVector(vector) || isZeroVector(direction)) {
     throw new Error('rotation is not applicable to this vector');
   }
-  const projectionVectorAtDirection = projectVectorAt(vector, direction);
+  const projectionVectorAtDirection = projectVectorTo(vector, direction);
   const projectionVectorAtNormalDirection = diffVectors(vector, projectionVectorAtDirection);
   const lengthOfProjectionVectorAtNormalDirection = getVectorLength(projectionVectorAtNormalDirection);
   const thirdAxisVector = getCrossProduct(direction, projectionVectorAtNormalDirection);

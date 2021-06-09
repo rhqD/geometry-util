@@ -1,4 +1,4 @@
-import { IPoint } from "../types";
+import { IPoint } from "../interfaces";
 import keys from 'lodash/keys';
 import union from 'lodash/union';
 import zipObject from 'lodash/zipObject';

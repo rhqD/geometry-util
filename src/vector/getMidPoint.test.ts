@@ -1,4 +1,4 @@
-import { IPoint } from '../types';
+import { IPoint } from '../interfaces';
 import getMidPoint from './getMidPoint';
 
 describe('getMidPoint', () => {

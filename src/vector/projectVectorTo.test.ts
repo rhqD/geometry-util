@@ -1,7 +1,7 @@
 import getRadianBetween from './getRadianBetween';
 import getVectorLength from './getVectorLength';
-import projectVectorAt from './projectVectorAt';
-describe('projectVectorAt', () => {
+import projectVectorTo from './projectVectorTo';
+describe('projectVectorTo', () => {
   it('should correctly calculate projected vector', () => {
     const vector = {
       x: 1,
@@ -13,7 +13,7 @@ describe('projectVectorAt', () => {
       y: 0,
       z: 1,
     };
-    expect(projectVectorAt(vector, directionVector)).toEqual({
+    expect(projectVectorTo(vector, directionVector)).toEqual({
       x: 0,
       y: 0,
       z: 5,
@@ -31,7 +31,7 @@ describe('projectVectorAt', () => {
       y: 2,
       z: 1,
     };
-    const result = projectVectorAt(vector, directionVector);
+    const result = projectVectorTo(vector, directionVector);
     const resultLength = getVectorLength(result);
     expect(resultLength).toBeCloseTo(12 / 6 ** 0.5);
     expect(getRadianBetween(result, directionVector)).toBeCloseTo(0);

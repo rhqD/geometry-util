@@ -1,4 +1,4 @@
-import { IPoint } from "../types/vector";
+import { IPoint } from "../interfaces";
 import pointsToVector from "./pointsToVector";
 
 describe('pointsToVector', () => {

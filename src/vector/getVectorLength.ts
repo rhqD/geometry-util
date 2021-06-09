@@ -1,4 +1,4 @@
-import { IVector } from '../types/vector';
+import { IVector } from '../interfaces';
 import sum from 'lodash/sum';
 import map from 'lodash/map';
 import values from 'lodash/values';
